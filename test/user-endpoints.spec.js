@@ -127,7 +127,7 @@ describe("User Endpoints", function () {
     describe(`Given a valid user`, () => {
       it(`responds 201, serialized user with no password`, () => {
         const newUser = {
-          username: "test username",
+          username: "test_username",
           password: "11AAaa!!",
           name: "test name",
         };

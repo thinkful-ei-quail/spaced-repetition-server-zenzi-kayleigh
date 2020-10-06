@@ -29,7 +29,7 @@ VALUES
   (6, 1, 'good', 'bonum', 7),
   (7, 1, 'bad', 'malus', 8),
   (8, 1, 'thank', 'gratia', 9),
-  (9, 1, 'you are welcome', 'gratissumum', 10),
+  (9, 1, 'please', 'obsecro', 10),
   (10, 1, 'bathroom', 'balneo', null);
 
 UPDATE "language" SET head = 1 WHERE id = 1;
