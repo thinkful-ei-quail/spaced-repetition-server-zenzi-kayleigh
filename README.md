@@ -27,7 +27,7 @@ For tests involving time to run properly, configure your Postgres database to ru
 1. Locate the `postgresql.conf` file for your Postgres installation.
    1. E.g. for an OS X, Homebrew install: `/usr/local/var/postgres/postgresql.conf`
    2. E.g. on Windows, _maybe_: `C:\Program Files\PostgreSQL\11.2\data\postgresql.conf`
-   3. E.g  on Ubuntu 18.04 probably: '/etc/postgresql/10/main/postgresql.conf'
+   3. E.g on Ubuntu 18.04 probably: '/etc/postgresql/10/main/postgresql.conf'
 2. Find the `timezone` line and set it to `UTC`:
 
 ```conf
@@ -40,6 +40,12 @@ timezone = 'UTC'
 ```
 
 ## Scripts
+
+DEMO USER INFO:
+"username": "langful1",
+"password": "1234ABC!b",
+"name": "Langful Demo"
+
 Heroku Deployment Info:
 Creating app... done, ⬢ still-savannah-14808
 https://still-savannah-14808.herokuapp.com/ | https://git.heroku.com/still-savannah-14808.git
