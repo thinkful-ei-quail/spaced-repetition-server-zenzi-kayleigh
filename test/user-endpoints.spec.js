@@ -189,7 +189,7 @@ describe("User Endpoints", function () {
             { original: "good", translation: "bonum" },
             { original: "bad", translation: "malus" },
             { original: "thank", translation: "gratia" },
-            { original: "you are welcome", translation: "gratissumum" },
+            { original: "please", translation: "obsecro" },
             { original: "bathroom", translation: "balneo" },
           ],
         };

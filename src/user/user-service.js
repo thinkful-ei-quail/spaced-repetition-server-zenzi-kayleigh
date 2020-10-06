@@ -62,7 +62,7 @@ const UserService = {
         ["bad", "malus", 8],
         ["thank", "gratia", 9],
         ["please", "obsecro", 10],
-        [("bathroom", "balneo", null)],
+        ["bathroom", "balneo", null],
       ];
 
       const [languageHeadId] = await trx.into("word").insert(

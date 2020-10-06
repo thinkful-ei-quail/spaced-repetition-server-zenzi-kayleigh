@@ -40,6 +40,12 @@ timezone = 'UTC'
 ```
 
 ## Scripts
+Heroku Deployment Info:
+Creating app... done, ⬢ still-savannah-14808
+https://still-savannah-14808.herokuapp.com/ | https://git.heroku.com/still-savannah-14808.git
+
+Created postgresql-shallow-63083 as DATABASE_URL
+DATABASE_URL: postgres://zmbauvralitwvu:e638825a31dbae2b889eb3b8bba6278bd96c3abe68cfff8033eea18a08f0f7ac@ec2-107-22-241-205.compute-1.amazonaws.com:5432/da6e5s03170cmt
 
 Start the application `npm start`
 
