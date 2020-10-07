@@ -53,12 +53,3 @@ https://still-savannah-14808.herokuapp.com/ | https://git.heroku.com/still-savan
 Created postgresql-shallow-63083 as DATABASE_URL
 DATABASE_URL: postgres://zmbauvralitwvu:e638825a31dbae2b889eb3b8bba6278bd96c3abe68cfff8033eea18a08f0f7ac@ec2-107-22-241-205.compute-1.amazonaws.com:5432/da6e5s03170cmt
 
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests mode `npm test`
-
-Run the migrations up `npm run migrate`
-
-Run the migrations down `npm run migrate -- 0`
