@@ -1,6 +1,7 @@
 const express = require('express')
 const LanguageService = require('./language-service')
 const { requireAuth } = require('../middleware/jwt-auth')
+const { getWord } = require('./language-service')
 
 const languageRouter = express.Router()
 
@@ -45,16 +46,39 @@ languageRouter
 
 languageRouter
   .get('/head', async (req, res, next) => {
-    // implement me
-    res.send('implement me!')
+    try {
+      const headId = await LanguageService.getHeadWord(
+        req.app.get("db"),
+        req.language.id
+      );
+      const headWord = await LanguageService.getWord(
+        req.app.get("db"),
+        headId
+      )
+      res.json({
+        headWord
+      });
+    } catch (error) {
+      next(error);
+    }
   })
 
 languageRouter
   .post('/guess', async (req, res, next) => {
-    
-    // implement me
-    //knex total 
-    res.send('implement me!')
+    //validate request body
+   const {stuff, from, lcient} = req.body;
+    const newGuess = {
+      stuff,
+      from,
+      client
+    }
+    if (!newGuess)
+    return res.status(400).json({
+      error: `A guess must be submitted. Try your best!`,
+    });
+  psuedocode word.compare(word);
+  res.sendStatus(201);
+    res.send('conditional right or wrong statement here')
   })
 
 module.exports = languageRouter

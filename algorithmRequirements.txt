@@ -1,0 +1,27 @@
+Given a list of questions with corresponding "memory values", 
+M, starting at 1:
+Take the first question in the list
+Ask the question
+If the answer was correct:
+Double the value of M
+Else, if the answer was wrong:
+Reset M to 1
+Move the question back M places in the list
+Use a singly linked list to do this
+
+
+*********FOR LANGUAGE GUESS ENDPOINTS************
+
+Write service object method(s) for populating the linked 
+list with words from the database.
+Check if the submitted answer is correct by comparing it with 
+the translation in the database.
+Set the word's new memory value as appropriate according 
+to the algorithm.
+Update the incorrect count or correct count for that word.
+Update the total score if appropriate.
+Shift the word along the linked list the appropriate 
+amount of spaces.
+Persist the updated words and language in the database.
+Send a response with the fields for feedback about the 
+user's guess as well as the next word to guess. 

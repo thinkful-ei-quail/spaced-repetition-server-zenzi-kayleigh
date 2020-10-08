@@ -23,10 +23,25 @@ class LinkedList {
       tempNode.next = new _Node(item, null);
     }
   }
-  // insertBefore(item) {
-  //   let currentNode = this.find(item);
-
-  // }
+  insertBefore(newItem, targetItem) {
+    let currNode = this.head;
+    let previousNode = null;
+    if (!currNode) {
+      return (this.head = new _Node(newItem, null));
+    }
+    while (currNode.value !== targetItem) {
+      if (currNode.next === null) {
+        return null;
+      } else {
+        previousNode = currNode;
+        currNode = currNode.next;
+      }
+    }
+    if (previousNode === null) {
+      return (this.head = new _Node(newItem, this.head));
+    }
+    return (previousNode.next = new _Node(newItem, currNode));
+  }
   insertAfter(item, newItem) {
     let currentNode = this.find(item);
     let newNode = new _Node(newItem, currentNode.next);
