@@ -47,7 +47,10 @@ languageRouter.get("/head", async (req, res, next) => {
       req.app.get("db"),
       req.language.id
     );
-    const headWord = await LanguageService.getWord(req.app.get("db"), headId);
+    const headWord = await LanguageService.getWord(
+      req.app.get("db"),
+      headId.head
+    );
     res.json({
       headWord,
     });
