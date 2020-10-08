@@ -14,7 +14,20 @@ const LanguageService = {
       .where("language.user_id", user_id)
       .first();
   },
-
+  serialize(db, list) {
+    return db.transaction((trx) => {
+      let words = list.toArray();
+      const queries = [];
+      words.forEach((word) => {
+        const query = db("word")
+          .where("id", word.id)
+          .update(word)
+          .transacting(trx);
+        queries.push(query);
+      });
+      Promise.all(queries).then(trx.commit).catch(trx.rollback);
+    });
+  },
   getLanguageWords(db, language_id) {
     return db
       .from("word")
@@ -38,23 +51,22 @@ const LanguageService = {
       .first();
   },
   getWord(db, headId) {
-    return db.from("word").select("*").where({ id: headId });
+    return db.from("word").select("*").where({ id: headId }).first();
   },
-  async getLinkedList(db, user_id, language_id, headId) {
+  async getLinkedList(db, language) {
     const linkedList = new LinkedList();
-    const language = await LanguageService.getUsersLanguage(user_id);
-    const word = await LanguageService.getHeadWord(language_id);
-    return db.from("word").select("*");
+    const words = await LanguageService.getLanguageWords(db, language.id);
+    let node = words.find((word) => word.id === language.head);
 
-    linkedList.push(word);
-    let nextWord = word;
-    while (nextWord.next) {
-      nextWord = await LanguageService.getWord(headId);
-      linkedList.push(nextWord);
+    while (node) {
+      linkedList.insertLast(node);
+      node = words.find((word) => word.id === node.next);
     }
     return linkedList;
   },
-  alterList() {},
+  updateLanguage(db, language) {
+    return db("language").update(language);
+  },
 };
 // createNewOrder (db, user_id) {
 //   return db

@@ -42,6 +42,27 @@ class LinkedList {
     }
     return (previousNode.next = new _Node(newItem, currNode));
   }
+  insertAt(nthPosition, itemToInsert) {
+    if (nthPosition < 0) {
+      throw new Error("Position error");
+    }
+    if (nthPosition === 0) {
+      this.insertFirst(itemToInsert);
+    } else {
+      // Find the node which we want to insert after
+      const node = this._findNthElement(nthPosition - 1);
+      const newNode = new _Node(itemToInsert, null);
+      newNode.next = node.next;
+      node.next = newNode;
+    }
+  }
+  _findNthElement(position) {
+    let node = this.head;
+    for (let i = 0; i < position; i++) {
+      node = node.next;
+    }
+    return node;
+  }
   insertAfter(item, newItem) {
     let currentNode = this.find(item);
     let newNode = new _Node(newItem, currentNode.next);
@@ -80,6 +101,24 @@ class LinkedList {
       return;
     }
     previousNode.next = currNode.next;
+  }
+  toArray() {
+    let node = this.head;
+    let nodes = [];
+    while (node) {
+      nodes.push(node.value);
+      node = node.next;
+    }
+    return nodes;
+  }
+  updateLinks() {
+    let node = this.head;
+    while (node) {
+      if (node.next) {
+        node.value.next = node.next.value.id;
+      }
+      node = node.next;
+    }
   }
 }
 
