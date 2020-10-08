@@ -12,8 +12,6 @@ Use a singly linked list to do this
 
 *********FOR LANGUAGE GUESS ENDPOINTS************
 
-Write service object method(s) for populating the linked 
-list with words from the database.
 Check if the submitted answer is correct by comparing it with 
 the translation in the database.
 Set the word's new memory value as appropriate according 
@@ -22,6 +20,3 @@ Update the incorrect count or correct count for that word.
 Update the total score if appropriate.
 Shift the word along the linked list the appropriate 
 amount of spaces.
-Persist the updated words and language in the database.
-Send a response with the fields for feedback about the 
-user's guess as well as the next word to guess. 

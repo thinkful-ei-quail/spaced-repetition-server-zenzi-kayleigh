@@ -66,19 +66,28 @@ languageRouter
 languageRouter
   .post('/guess', async (req, res, next) => {
     //validate request body
-   const {stuff, from, lcient} = req.body;
-    const newGuess = {
-      stuff,
-      from,
-      client
-    }
+   const {guess} = req.body;
+   let M = 1;
+    const newGuess = { word }
     if (!newGuess)
     return res.status(400).json({
       error: `A guess must be submitted. Try your best!`,
     });
-  psuedocode word.compare(word);
-  res.sendStatus(201);
-    res.send('conditional right or wrong statement here')
+     try {
+      const headWord = await LanguageService.getWord(
+        req.app.get("db"),
+        headId
+      );
+      if (headWord == newGuess){
+    res.sendStatus(201);
+    res.send('You are correct')
+    M *=2;
+    headWord.LanguageService.alterList()
+      } else {
+    res.sendStatus(201);
+    res.send(`You are incorrect. The correct answer is ${headword}`)
+    M = 1;
+      }
   })
-
+}
 module.exports = languageRouter
