@@ -82,11 +82,12 @@ languageRouter
     res.sendStatus(201);
     res.send('You are correct')
     M *=2;
-    headWord.LanguageService.alterList()
+    headWord.LanguageService.alterList(M)
       } else {
     res.sendStatus(201);
     res.send(`You are incorrect. The correct answer is ${headword}`)
     M = 1;
+    headWord.LanguageService.alterList(M)
       }
   })
 }
