@@ -45,7 +45,7 @@ const LanguageService = {
     .select("*")
      .where({id: headId})
   },
-  getLinkedList(db,user_id, language_id, headId) {
+  async getLinkedList(db,user_id, language_id, headId) {
     const linkedList = new LinkedList()
     const language = await LanguageService.getUsersLanguage(user_id)
     const word = await LanguageService.getHeadWord(language_id)
