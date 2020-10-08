@@ -51,6 +51,7 @@ const LanguageService = {
     const word = await LanguageService.getHeadWord(language_id)
     return db
     .from ("word")
+    .select("*")
     
 
     linkedList.push(word)
@@ -62,7 +63,7 @@ const LanguageService = {
     return linkedList
   },
   alterList() {
-    
+
   }
 }
   // createNewOrder (db, user_id) {
