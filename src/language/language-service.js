@@ -1,4 +1,5 @@
 const LinkedList = require("../linkedList/LinkedList");
+const { delete } = require("../app");
 
 const LanguageService = {
   getUsersLanguage(db, user_id) {
@@ -65,7 +66,9 @@ const LanguageService = {
     return linkedList;
   },
   updateLanguage(db, language) {
-    return db("language").update(language);
+    let id = language.id;
+    delete language.id;
+    return db("language").update(language).where({ id });
   },
 };
 // createNewOrder (db, user_id) {
